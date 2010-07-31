@@ -2,6 +2,8 @@ package jp.angelforest.arrow.particlesystem;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.util.Log;
+
 import jp.arrow.angelforest.engine.core.AngelForest2DEngine;
 import jp.arrow.angelforest.engine.core.SquarePolygon;
 
@@ -75,11 +77,15 @@ public class Particle {
     }
 
     private void changeAlpha(){
-        white[3] /= valpha;
-        white[7] /= valpha;
-        white[11] /= valpha;
-        white[15] /= valpha;
-
+        white[3] -= valpha;
+    	if(white[3] < 0) white[3] = 0;
+        white[7] -= valpha;
+    	if(white[7] < 0) white[7] = 0;
+        white[11] -= valpha;
+    	if(white[11] < 0) white[11] = 0;
+        white[15] -= valpha;
+    	if(white[15] < 0) white[15] = 0;
+        
         square1.changeColor(white);
         square2.changeColor(white);
     }

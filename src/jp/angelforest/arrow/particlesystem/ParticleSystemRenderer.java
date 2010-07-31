@@ -13,6 +13,8 @@ public class ParticleSystemRenderer extends AngelforestRenderer {
         super(context);
 
         particle = new Particle(4);
+		particle.setX(40);
+		particle.setY(40);
         particle.setGoal(100, 100, 400);
     }
 
@@ -22,8 +24,6 @@ public class ParticleSystemRenderer extends AngelforestRenderer {
 
     @Override
     public void draw(GL10 gl) {
-//        particle.setX(40);
-//        particle.setY(40);
         particle.draw(gl);
         particle.move();
     }
